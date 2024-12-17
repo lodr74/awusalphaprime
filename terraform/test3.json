@@ -1,0 +1,76 @@
+{
+  "version": "2.0",
+  "accountId": "123456789012",
+  "region": "us-east-1",
+  "id": "abcd1234-5678-90ef-ghij-1234567890ab",
+  "arn": "arn:aws:guardduty:us-east-1:123456789012:detector/abcd1234/finding/abcd5678",
+  "type": "Recon:EC2/PortProbeUnprotectedPort",
+  "resource": {
+    "resourceType": "Instance",
+    "instanceDetails": {
+      "instanceId": "i-0abcdef1234567890",
+      "instanceType": "t2.micro",
+      "launchTime": "2024-12-01T12:00:00Z",
+      "networkInterfaces": [
+        {
+          "privateIpAddress": "192.168.1.1",
+          "publicIpAddress": "54.123.45.67",
+          "securityGroups": [
+            {
+              "groupId": "sg-0123456789abcdef0",
+              "groupName": "default"
+            }
+          ]
+        }
+      ],
+      "tags": [
+        {
+          "key": "Environment",
+          "value": "Production"
+        }
+      ]
+    }
+  },
+  "severity": 5.0,
+  "createdAt": "2024-12-15T14:00:00Z",
+  "updatedAt": "2024-12-15T15:00:00Z",
+  "service": {
+    "detectorId": "abcd1234",
+    "action": {
+      "actionType": "PORT_PROBE",
+      "portProbeAction": {
+        "portProbeDetails": [
+          {
+            "localPortDetails": {
+              "port": 22,
+              "portName": "SSH"
+            },
+            "remoteIpDetails": {
+              "ipAddressV4": "198.51.100.1",
+              "organization": {
+                "asn": 12345,
+                "asnOrg": "Example Org",
+                "isp": "Example ISP",
+                "org": "Example Org"
+              },
+              "geoLocation": {
+                "lat": 37.7749,
+                "lon": -122.4194,
+                "city": "San Francisco",
+                "country": "US"
+              }
+            }
+          }
+        ],
+        "blocked": false
+      }
+    },
+    "resourceRole": "TARGET",
+    "additionalInfo": {
+      "threatListName": "ExampleThreatList"
+    }
+  },
+  "title": "Unprotected Port Accessible from Internet",
+  "description": "EC2 instance with public IP has an open port (22/SSH) that is accessible from the internet.",
+  "recommendation": "Restrict access to port 22 using security group rules."
+}
