@@ -1,0 +1,13 @@
+{
+    "fileLocations": [
+      {
+        "URIPrefixes": [
+          "s3://guardduty-findings-transformed-123456789012/"
+        ]
+      }
+    ],
+    "globalUploadSettings": {
+      "format": "JSON"
+    }
+  }
+  
